@@ -567,17 +567,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "cookie"
-version = "0.18.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1a373e3602691c3cdea496d2f0ee5935151e6168fe87739483c463db1b2f2f87"
-dependencies = [
- "percent-encoding",
- "time",
- "version_check",
-]
-
-[[package]]
 name = "core_maths"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1889,12 +1878,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d4345964bb142484797b161f473a503a434de77149dd8c7427788c6e13379388"
 
 [[package]]
-name = "lazy_static"
-version = "1.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bbd2bcb4c963f2ddae06a2efc7e9f3591312473c50c6685e1f298068316e66fe"
-
-[[package]]
 name = "leptos"
 version = "0.8.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1933,32 +1916,6 @@ dependencies = [
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "wasm_split_helpers",
- "web-sys",
-]
-
-[[package]]
-name = "leptos-use"
-version = "0.19.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f619160d1a85b7a1dd0dcd79ae1888951b228c7d00bcc32c0ad85eeb80d8936f"
-dependencies = [
- "actix-web",
- "cfg-if",
- "codee",
- "cookie",
- "default-struct-builder",
- "http 0.2.12",
- "http 1.5.0",
- "js-sys",
- "lazy_static",
- "leptos",
- "leptos_actix",
- "leptos_axum",
- "paste",
- "send_wrapper",
- "thiserror 2.0.20",
- "wasm-bindgen",
- "wasm-bindgen-futures",
  "web-sys",
 ]
 
@@ -2060,11 +2017,12 @@ dependencies = [
 name = "leptos_i18n"
 version = "0.6.4"
 dependencies = [
+ "actix-web",
  "async-once-cell",
- "codee",
  "default-struct-builder",
  "fixed_decimal",
  "futures",
+ "http 1.5.0",
  "icu_calendar",
  "icu_datetime",
  "icu_decimal",
@@ -2075,7 +2033,8 @@ dependencies = [
  "icu_provider",
  "js-sys",
  "leptos",
- "leptos-use",
+ "leptos_actix",
+ "leptos_axum",
  "leptos_i18n_macro",
  "leptos_meta",
  "serde",
@@ -2084,6 +2043,7 @@ dependencies = [
  "tinystr",
  "typed-builder",
  "wasm-bindgen",
+ "web-sys",
  "writeable",
 ]
 
