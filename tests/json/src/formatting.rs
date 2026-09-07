@@ -91,12 +91,12 @@ fn currency_formatting() {
     let num = move || 2000.50f64;
 
     let en = td!(Locale::en, currency_formatting, num);
-    assert_eq_rendered!(en, "€2,000.5");
+    assert_eq_rendered!(en, "€2,000.50");
     let fr = td!(Locale::fr, currency_formatting, num);
-    assert_eq_rendered!(fr, "2\u{202f}000,5\u{a0}$US");
+    assert_eq_rendered!(fr, "2\u{202f}000,50\u{a0}$US");
 
     let en = td!(Locale::en, currency_formatting_width, num);
-    assert_eq_rendered!(en, "$2,000.5");
+    assert_eq_rendered!(en, "$2,000.50");
     let fr = td!(Locale::fr, currency_formatting_width, num);
-    assert_eq_rendered!(fr, "2\u{202f}000,5\u{a0}€");
+    assert_eq_rendered!(fr, "2\u{202f}000,50\u{a0}€");
 }

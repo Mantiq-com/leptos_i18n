@@ -24,12 +24,13 @@ icu = { version = "2.2", default-features = false, features = [
   # feature only needed for experimental features (e.g "format_currency")
   "unstable",
 ] }
-icu_provider_baked = "2.2" # for databake
-icu_provider = "2.2" # for databake
+icu_provider_baked = "2.3" # for databake
+icu_provider = "2.3" # for databake
+icu_locale_core = "2.3" # for databake
 zerovec = "0.11" # for databake
 
 # only needed for experimental features (e.g "format_currency")
-icu_pattern = "0.4" # for databake
+icu_pattern = "0.5" # for databake
 
 [build-dependencies.leptos_i18n_build]
 path = "../../../leptos_i18n_build"

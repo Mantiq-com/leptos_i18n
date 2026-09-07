@@ -1,12 +1,12 @@
 [workspace]
 resolver = "2"
 members = [
-  "leptos_i18n",
-  "leptos_i18n_macro",
-  "leptos_i18n_parser",
-  "leptos_i18n_build",
-  "leptos_i18n_codegen",
-  "leptos_i18n_router",
+    "leptos_i18n",
+    "leptos_i18n_macro",
+    "leptos_i18n_parser",
+    "leptos_i18n_build",
+    "leptos_i18n_codegen",
+    "leptos_i18n_router",
 ]
 exclude = ["examples", "tests"]
 
@@ -43,7 +43,7 @@ icu_datetime = { version = "2.2", default-features = false }
 icu_calendar = { version = "2.2", default-features = false }
 icu_list = { version = "2.2", default-features = false }
 icu_decimal = { version = "2.2", default-features = false }
-icu_experimental = { version = "0.5", default-features = false }
+icu_experimental = { version = "0.6", default-features = false }
 tinystr = { default-features = false, version = "0.8" }
 
 default-struct-builder = { default-features = false, version = "0.5" }

@@ -102,14 +102,14 @@ Enable the "format_currency" feature to use the currency formatter.
 
 ### Arguments
 
-There are two arguments at the moment for the currency formatter: `width` and `currency_code`, which are based on [`icu::experimental::dimension::currency::options::Width`](https://docs.rs/icu/2.0.0/icu/experimental/dimension/currency/options/enum.Width.html) and [`icu::experimental::dimension::currency::CurrencyCode`](https://docs.rs/icu/2.0.0/icu/experimental/dimension/currency/struct.CurrencyCode.html).
+There are two arguments at the moment for the currency formatter: `width` and `currency_code`.
 
-`width` values:
+`width` selects the currency symbol variant, matching the `try_new_symbol` and `try_new_symbol_narrow` constructors of [`icu::experimental::dimension::currency::formatter::CurrencyFormatter`](https://docs.rs/icu_experimental/latest/icu_experimental/dimension/currency/formatter/struct.CurrencyFormatter.html):
 
 - short (default)
 - narrow
 
-`currency_code` value should be a [currency code](https://www.iban.com/currency-codes), such as USD or EUR. USD is the default value.
+`currency_code` value should be a [currency code](https://www.iban.com/currency-codes), such as USD or EUR, and is passed to the formatter as an [`icu::locale::preferences::extensions::unicode::keywords::CurrencyType`](https://docs.rs/icu_locale_core/latest/icu_locale_core/preferences/extensions/unicode/keywords/struct.CurrencyType.html). USD is the default value.
 
 ### Example
 
