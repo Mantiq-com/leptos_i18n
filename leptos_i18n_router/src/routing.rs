@@ -389,7 +389,7 @@ fn update_path_effect<L: Locale>(
 
         // TODO FIXME: see https://github.com/leptos-rs/leptos/issues/2979
         // It works for now, but it is not ideal.
-        request_animation_frame(move || {
+        navigate_on_next_frame(move || {
             navigate(
                 &new_path,
                 NavigateOptions {
@@ -401,6 +401,12 @@ fn update_path_effect<L: Locale>(
         });
 
         new_locale
+    }
+}
+
+fn navigate_on_next_frame(navigate: impl FnOnce() + 'static) {
+    if let Err(err) = request_animation_frame(navigate) {
+        leptos::logging::error!("leptos_i18n_router could not schedule the navigation: {err:?}");
     }
 }
 
@@ -439,7 +445,7 @@ fn correct_locale_prefix_effect<L: Locale>(
 
         // TODO FIXME: see https://github.com/leptos-rs/leptos/issues/2979
         // It works for now, but it is not ideal.
-        request_animation_frame(move || {
+        navigate_on_next_frame(move || {
             navigate(
                 &new_path,
                 NavigateOptions {

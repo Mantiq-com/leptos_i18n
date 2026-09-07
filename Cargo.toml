@@ -25,9 +25,9 @@ leptos_i18n_build = { path = "./leptos_i18n_build", version = "0.6.4", default-f
 
 # non-members
 # leptos
-leptos = { version = "0.8", default-features = false }
-leptos_router = { version = "0.8", default-features = false }
-leptos_meta = { version = "0.8", default-features = false }
+leptos = { version = "0.9.0-beta", default-features = false }
+leptos_router = { version = "0.9.0-beta1", default-features = false }
+leptos_meta = { version = "0.9.0-beta", default-features = false }
 
 # icu
 icu = { version = "2.4", default-features = false }
@@ -47,8 +47,8 @@ tinystr = { default-features = false, version = "0.8" }
 default-struct-builder = { default-features = false, version = "0.5" }
 serde_json = { default-features = false, version = "1.0" }
 futures = { default-features = false, version = "0.3" }
-leptos-use-cookie = { default-features = false, version = "0.20" }
-leptos-use-locales = { default-features = false, version = "0.20" }
+leptos-use-cookie = { git = "https://github.com/Synphonyte/leptos-use", branch = "leptos-0.9", default-features = false }
+leptos-use-locales = { git = "https://github.com/Synphonyte/leptos-use", branch = "leptos-0.9", default-features = false }
 writeable = { default-features = false, version = "0.6" }
 prettyplease = { default-features = false, version = "0.3" }
 serde-wasm-bindgen = { default-features = false, version = "0.6" }
