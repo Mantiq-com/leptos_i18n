@@ -40,7 +40,6 @@ icu_experimental = { workspace = true, optional = true, features = [
   "ryu",
 ], default-features = false }
 writeable = { workspace = true, default-features = false }
-tinystr = { workspace = true, optional = true, default-features = false }
 typed-builder = { workspace = true, default-features = true }
 serde = { workspace = true, default-features = true }
 async-once-cell = { optional = true, workspace = true, default-features = true }
@@ -94,7 +93,6 @@ format_nums = [
 ]
 format_currency = [
   "format_nums",
-  "dep:tinystr",
   "dep:icu_experimental",
   "dep:icu_provider",
   "leptos_i18n_macro/format_currency",
