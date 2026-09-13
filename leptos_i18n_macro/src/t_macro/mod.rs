@@ -43,6 +43,22 @@ pub fn t_macro_inner(
         mut interpolations,
     } = input;
 
+    // A plain key read from a context renders through `TranslatedText`, whose
+    // type does not depend on the call site, instead of a closure that leptos
+    // would monomorphize its rendering for at every `t!` invocation. The
+    // accessor is passed as a function pointer, so a key that expects
+    // interpolated values fails on the `PlainTranslation` bound. Under
+    // `dynamic_load` the accessors return futures and keep the closure path.
+    if interpolations.is_none()
+        && matches!(input_type, InputType::Context)
+        && matches!(output_type, OutputType::View)
+        && !cfg!(feature = "dynamic_load")
+    {
+        return quote! {
+            leptos_i18n::__private::TranslatedText::new(#context, |keys| keys.#keys())
+        };
+    }
+
     let get_key = input_type.get_key(context, keys);
     let (builder_fn, build_fn) = output_type.build_fns();
 

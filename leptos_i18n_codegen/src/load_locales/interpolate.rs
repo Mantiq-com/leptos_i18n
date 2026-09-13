@@ -565,6 +565,27 @@ impl Interpolation {
             quote!()
         };
 
+        // A builder with no variable and no component — a key whose literal
+        // kind differs between locales — still renders without any input, so a
+        // context `t!` can hold it in a `TranslatedText`. The per-locale views
+        // have different types, hence the erasure. Under `dynamic_load` the
+        // builder renders through a future and stays on the closure path.
+        let plain_translation_impl = if fields.is_empty() && !cfg!(feature = "dynamic_load") {
+            quote! {
+                impl l_i18n_crate::__private::PlainTranslation for #dummy_ident {
+                    type View = l_i18n_crate::reexports::leptos::prelude::AnyView;
+
+                    fn into_view(self) -> Self::View {
+                        l_i18n_crate::reexports::leptos::prelude::IntoAny::into_any(
+                            self.builder().build().into_view(),
+                        )
+                    }
+                }
+            }
+        } else {
+            quote!()
+        };
+
         quote! {
             impl #dummy_ident {
                 pub const fn new(#locale_field: #enum_ident) -> Self {
@@ -582,6 +603,8 @@ impl Interpolation {
             }
 
             #string_builder_trait_impl
+
+            #plain_translation_impl
         }
     }
 

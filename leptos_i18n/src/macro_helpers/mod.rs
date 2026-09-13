@@ -4,12 +4,14 @@ use std::{fmt::Display, future::Future, marker::PhantomData};
 pub mod formatting;
 mod interpol_args;
 mod scope;
+mod translated_text;
 
 use crate::Locale;
 pub use formatting::*;
 pub use interpol_args::*;
 use leptos::IntoView;
 pub use scope::*;
+pub use translated_text::*;
 
 #[doc(hidden)]
 pub trait Literal: Sized + Display + IntoView + Copy {
