@@ -198,7 +198,10 @@ fn init_context_inner<L: Locale>(
         locale_signal.set(l);
     });
 
-    Effect::new_isomorphic(move |_| {
+    // Only the browser stores a changed locale: the server writes the cookie once,
+    // when `use_locale_cookie` creates it. On the server this effect would run on
+    // an executor thread, where it can read the locale while its owner is disposed.
+    Effect::new(move |_| {
         #[cfg(feature = "unified_contexts")]
         let new_lang = {
             let new_lang_any = locale_signal.get();

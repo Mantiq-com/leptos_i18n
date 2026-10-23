@@ -5,6 +5,7 @@ include!(concat!(env!("OUT_DIR"), "/i18n/mod.rs"));
 
 mod components;
 mod defaulted;
+mod disposed_owner;
 mod foreign;
 mod formatting;
 mod plurals;

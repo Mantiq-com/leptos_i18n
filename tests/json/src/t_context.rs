@@ -3,10 +3,8 @@ use leptos_i18n::{I18nContext, context::init_i18n_subcontext};
 use tests_common::*;
 
 /// Runs `test` with a context started on `locale`. A subcontext resolves its
-/// locale without a request or a browser, and its isomorphic effect needs an
-/// executor, which is set once per process.
+/// locale without a request or a browser.
 fn with_context(locale: Locale, test: impl FnOnce(I18nContext<Locale>)) {
-    let _ = any_spawner::Executor::init_futures_executor();
     Owner::new().with(|| {
         let i18n = init_i18n_subcontext::<Locale>(Some(Signal::stored(locale)));
         test(i18n);
