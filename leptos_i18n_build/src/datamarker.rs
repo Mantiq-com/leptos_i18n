@@ -113,6 +113,8 @@ impl FormatterOptions {
                 &[
                     icu::experimental::dimension::provider::currency::essentials::CurrencyEssentialsV1::INFO,
                     icu::experimental::dimension::provider::currency::symbols::CurrencySymbolsV1::INFO,
+                    icu::experimental::dimension::provider::currency::symbols::CurrencyDecimalSymbolsV1::INFO,
+                    icu::experimental::dimension::provider::currency::no_currency::CurrencyPatternsNoCurrencyV1::INFO,
                     icu::experimental::dimension::provider::currency::fractions::CurrencyFractionsV1::INFO,
                 ],
             ]

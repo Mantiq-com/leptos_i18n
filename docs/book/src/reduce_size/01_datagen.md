@@ -30,9 +30,9 @@ you will also need some dependencies:
 ```toml
 [dependencies]
 # "default-features = false" to turn off compiled_data
-icu_provider_baked = "2.3" # for databake
-icu_provider = "2.3" # for databake
-icu_locale_core = "2.3" # for databake
+icu_provider_baked = "2.4" # for databake
+icu_provider = "2.4" # for databake
+icu_locale_core = "2.4" # for databake
 zerovec = "0.11" # for databake
 ```
 

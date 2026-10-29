@@ -24,9 +24,9 @@ icu = { version = "2.2", default-features = false, features = [
   # feature only needed for experimental features (e.g "format_currency")
   "unstable",
 ] }
-icu_provider_baked = "2.3" # for databake
-icu_provider = "2.3" # for databake
-icu_locale_core = "2.3" # for databake
+icu_provider_baked = "2.4" # for databake
+icu_provider = "2.4" # for databake
+icu_locale_core = "2.4" # for databake
 zerovec = "0.11" # for databake
 
 # only needed for experimental features (e.g "format_currency")
